@@ -6,7 +6,7 @@ import time
 
 
 start_time = time.time()
-path = f'./DataSets/blobsData.csv'
+path = f'./blobs/blobsData.csv'
 df = pd.read_csv(path)
 data = df.values.tolist()
 d = np.array(data)
