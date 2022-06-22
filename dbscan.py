@@ -66,26 +66,26 @@ def dbscan(m, eps, min_points):
     print(n_points)
     classifications = [UNCLASSIFIED] * n_points
     for point_id in range(0, n_points):
-        t1 = time.time()
-        print(f"point_id : {point_id}")
+        # t1 = time.time()
+        # print(f"point_id : {point_id}")
         point = m[:, point_id]
         if classifications[point_id] == UNCLASSIFIED:
             if _expand_cluster(m, classifications, point_id, cluster_id, eps, min_points):
                 cluster_id = cluster_id + 1
-        print(time.time() - t1)
+        # print(time.time() - t1)
     return classifications
 
 
 def main(d, eps, min_points):
-    print("Run main")
+    # print("Run main")
     global dists
-    print("Run distance")
+    # print("Run distance")
     dists = distance.cdist(d.transpose(), d.transpose(), 'euclidean')
-    print("end distance")
-    print("Run dbscan")
+    # print("end distance")
+    # print("Run dbscan")
     clusters = dbscan(d, eps, min_points)
-    print("end dbscan")
-    print("end main")
+    # print("end dbscan")
+    # print("end main")
     return clusters
 
 
