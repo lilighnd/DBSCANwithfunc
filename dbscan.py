@@ -8,6 +8,7 @@ import numpy as np
 import math
 from scipy.spatial import distance
 from sklearn.cluster import cluster_optics_dbscan
+import time
 
 UNCLASSIFIED = False
 NOISE = None
@@ -65,11 +66,13 @@ def dbscan(m, eps, min_points):
     print(n_points)
     classifications = [UNCLASSIFIED] * n_points
     for point_id in range(0, n_points):
+        t1 = time.time()
         print(f"point_id : {point_id}")
         point = m[:, point_id]
         if classifications[point_id] == UNCLASSIFIED:
             if _expand_cluster(m, classifications, point_id, cluster_id, eps, min_points):
                 cluster_id = cluster_id + 1
+        print(time.time() - t1)
     return classifications
 
 
