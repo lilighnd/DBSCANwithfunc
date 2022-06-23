@@ -6,12 +6,12 @@ import time
 
 
 start_time = time.time()
-path = f'./blobs/blobsData.csv'
+path = f'./blobs/blobsData1m.csv'
 df = pd.read_csv(path)
 data = df.values.tolist()
 d = np.array(data)
-eps = 0.7
-minpoint = 3
+eps = 5
+minpoint = 5
 print(d.shape)
 #c = dbscan(d.transpose(),eps,minpoint)
 c = main(d.transpose() ,eps ,minpoint )
