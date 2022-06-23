@@ -5,12 +5,13 @@ import numpy as np
 import time
 from sklearn import cluster, datasets
 
-blobs = datasets.make_blobs(n_samples=25000, n_features = 2, centers = 3)
-data=blobs[0]
+# blobs = datasets.make_blobs(n_samples=25000, n_features = 2, centers = 3)
+# data=blobs[0]
 start_time = time.time()
 # path = f'./blobs/blobsData1m.csv'
-# df = pd.read_csv(path)
-# data = df.values.tolist()
+path = f'/content/drive/MyDrive/Colab Notebooks/blobsData1m.csv'
+df = pd.read_csv(path)
+data = df.values.tolist()
 d = np.array(data)
 eps = 1
 minpoint = 5
