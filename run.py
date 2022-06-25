@@ -15,10 +15,11 @@ path = f'/content/drive/MyDrive/Colab Notebooks/moonsLabels38.csv'
 df = pd.read_csv(path)
 Labels = df.values.tolist()
 
-X_train,_,Y_train,_ = train_test_split(data,Labels,test_size=0.33,random_state=42)
-print(X_train)
+X_train,X_test,Y_train,Y_test=train_test_split(data,Labels,test_size=0.33,random_state=42)
+print(X_test)
 # d = np.array(data)
-d = np.array(X_train)
+d = np.array(X_test)
+
 eps = 0.07
 minpoint = 3
 print(d.shape)
