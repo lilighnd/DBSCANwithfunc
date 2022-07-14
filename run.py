@@ -125,8 +125,8 @@ if D == "circle":
 True_label = data[1]
 # Data=data[0].tolist()
 Data=data[0]
-print(f"Labels : {True_label}")
-print(f"Data : {Data}")
+# print(f"Labels : {True_label}")
+# print(f"Data : {Data}")
 
 Epsilon=0.048
 Minpoints=3
