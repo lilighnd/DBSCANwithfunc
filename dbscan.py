@@ -73,8 +73,8 @@ def _expand_cluster(m, classifications, point_id, cluster_id, eps, min_points):
 
 def dbscan(m, eps, min_points):
     cluster_id = 1
-    # n_points = m.shape[1]
-    n_points = len(m)
+    n_points = m.shape[1]
+    # n_points = len(m)
     print(n_points)
     classifications = [UNCLASSIFIED] * n_points
     for point_id in range(0, n_points):
