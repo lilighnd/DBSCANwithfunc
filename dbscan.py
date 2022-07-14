@@ -20,9 +20,8 @@ dists = []
 
 def distances(point,data):
     print("satart distances")
-    print(data[point],type(data[point]))
-    print(type(data))
     dists = distance.cdist(data[point], data, 'euclidean')
+    print(dists)
     return dists
 
 def _eps_neighborhood(p, q, eps,dists_point_id):
