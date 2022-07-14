@@ -22,9 +22,9 @@ def distances(point,data):
     dists = distance.cdist([point], data, 'euclidean')
     return dists
 
-def _eps_neighborhood(p, q, eps):
+def _eps_neighborhood(p, q, eps,dists_point_id):
     # print("Run _eps_neighborhood")
-    return dists[p][q] < eps
+    return dists_point_id[p][q] < eps
 
 
 def _region_query(m, point_id, eps):
@@ -35,7 +35,7 @@ def _region_query(m, point_id, eps):
     dists_point_id = distances(point_id,m)
     for i in range(0, n_points):
         # print(i)
-        if _eps_neighborhood(point_id, i, eps):
+        if _eps_neighborhood(point_id, i, eps,dists_point_id):
             seeds.append(i)
     # print("End Run  _region_query")
     return seeds
