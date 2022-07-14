@@ -31,7 +31,7 @@ def _eps_neighborhood(p, q, eps,dists_point_id):
 
 def _region_query(m, point_id, eps):
     print("Run _region_query")
-    n_points = m.shape[1]
+    n_points = m.shape[0]
     # m2 = m.transpose()
     seeds = []
     dists_point_id = distances(point_id,m)
