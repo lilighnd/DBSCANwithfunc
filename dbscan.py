@@ -19,6 +19,9 @@ NOISE = None
 dists = []
 
 def distances(point,data):
+    print("satart distances")
+    print([point],type([point]))
+    print(type(data))
     dists = distance.cdist([point], data, 'euclidean')
     return dists
 
