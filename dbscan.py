@@ -9,11 +9,18 @@ import math
 from scipy.spatial import distance
 from sklearn.cluster import cluster_optics_dbscan
 import time
+import getopt, sys
+import json
+
+
 
 UNCLASSIFIED = False
 NOISE = None
 dists = []
 
+def distances(point,data):
+    dists = distance.cdist([point], data, 'euclidean')
+    return dists
 
 def _eps_neighborhood(p, q, eps):
     # print("Run _eps_neighborhood")
@@ -25,6 +32,7 @@ def _region_query(m, point_id, eps):
     n_points = m.shape[1]
     m2 = m.transpose()
     seeds = []
+    dists_point_id = distances(point_id,m)
     for i in range(0, n_points):
         # print(i)
         if _eps_neighborhood(point_id, i, eps):
@@ -78,9 +86,9 @@ def dbscan(m, eps, min_points):
 
 def main(d, eps, min_points):
     # print("Run main")
-    global dists
+    # global dists
     # print("Run distance")
-    dists = distance.cdist(d.transpose(), d.transpose(), 'euclidean')
+    # dists = distance.cdist(d.transpose(), d.transpose(), 'euclidean')
     # print("end distance")
     # print("Run dbscan")
     clusters = dbscan(d, eps, min_points)
