@@ -127,7 +127,8 @@ Data=data[0]
 print(f"Labels : {True_label}")
 print(f"Data : {Data}")
 
-
+Epsilon=0.1
+Minpoints=3
 start_time = time.time()
 #c = dbscan(d.transpose(),eps,minpoint)
 c = main(Data ,Epsilon, Minpoints)

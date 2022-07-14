@@ -26,7 +26,7 @@ def distances(pointid,data):
 
 def _eps_neighborhood(p, q, eps,dists_point_id):
     # print("Run _eps_neighborhood")
-    print(f"dist p,q : {dists_point_id[0][q],type(eps)}")
+    print(f"dist p,q : {dists_point_id[0][q]}")
     return dists_point_id[0][q] < eps
 
 
