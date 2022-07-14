@@ -82,7 +82,7 @@ json_object = json.dumps(Obj, indent = 9)
 with open("/content/drive/MyDrive/Colab Notebooks/inputobjectdb.json", "w") as outfile:
     outfile.write(json_object)
 
-with open('/content/drive/MyDrive/Colab Notebooks/inputobject.json', 'r') as openfile:
+with open('/content/drive/MyDrive/Colab Notebooks/inputobjectdb.json', 'r') as openfile:
   
     # Reading from json file
     json_object = json.load(openfile)
@@ -94,7 +94,7 @@ with open('/content/drive/MyDrive/Colab Notebooks/inputobject.json', 'r') as ope
 
 
 
-with open('/content/drive/MyDrive/Colab Notebooks/inputobject.json', 'r') as openfile:
+with open('/content/drive/MyDrive/Colab Notebooks/inputobjectdb.json', 'r') as openfile:
 # Reading from json file
     json_object = json.load(openfile)
 
@@ -122,7 +122,7 @@ if D == "circle":
 
 
 True_label = data[1]
-Data=data[0].transpose() 
+Data=data[0]
 print(f"Labels : {True_label}")
 print(f"Data : {Data}")
 
