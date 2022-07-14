@@ -6,6 +6,7 @@ import time
 from sklearn.model_selection import train_test_split
 from sklearn import cluster, datasets
 import json
+from sklearn.metrics import adjusted_rand_score
 
 # # path = f'./DataSets/blobsData.csv'
 # path = f'/content/drive/MyDrive/Colab Notebooks/moonsData38.csv'
@@ -129,5 +130,6 @@ start_time = time.time()
 #c = dbscan(d.transpose(),eps,minpoint)
 c = main(Data ,Epsilon, Minpoints)
 alltime=time.time() - start_time
+R1 = adjusted_rand_score(True_label, c)
 print(alltime)
 print(c)
