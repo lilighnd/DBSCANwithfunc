@@ -26,7 +26,7 @@ def distances(point,data):
 
 def _eps_neighborhood(p, q, eps,dists_point_id):
     print("Run _eps_neighborhood")
-    return dists_point_id[p][q] < eps
+    return dists_point_id[0][q] < eps
 
 
 def _region_query(m, point_id, eps):
