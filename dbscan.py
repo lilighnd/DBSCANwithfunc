@@ -20,8 +20,7 @@ dists = []
 
 def distances(point,data):
     print("satart distances")
-    print(data[point].reshape(1,-1),data.reshape(1,-1))
-    dists = distance.cdist(data[point].reshape(1,-1), data.reshape(1,-1), 'euclidean')
+    dists = distance.cdist(data[point].reshape(1,-1), data, 'euclidean')
     print(dists)
     return dists
 
