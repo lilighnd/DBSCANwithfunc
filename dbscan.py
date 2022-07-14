@@ -18,9 +18,9 @@ UNCLASSIFIED = False
 NOISE = None
 # dists = []
 
-def distances(point,data):
+def distances(pointid,data):
     print("satart distances")
-    dists = distance.cdist(data[point].reshape(1,-1), data, 'euclidean')
+    dists = distance.cdist(data[pointid].reshape(1,-1), data, 'euclidean')
     print(dists)
     return dists
 
