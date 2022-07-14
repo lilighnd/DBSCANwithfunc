@@ -30,14 +30,15 @@ Noise = 0.05
 Random_state = 42
 features = 2
 Centers = 3
-Epsilon = 0.01
-Minpoints = 3
+# Epsilon = 0.01
+# Minpoints = 3
 argumentList = sys.argv[1:]
 # Options
 options = "d:n:N:r:f:c:e:m:"
  
 # Long options
-long_options = ["Dataset", "Number_Data", "Noise", "Random_state", "features", "Centers", "Epsilon", "Minpoints"]
+# long_options = ["Dataset", "Number_Data", "Noise", "Random_state", "features", "Centers", "Epsilon", "Minpoints"]
+long_options = ["Dataset", "Number_Data", "Noise", "Random_state", "features", "Centers"]
 
 arguments, values = getopt.getopt(argumentList, options, long_options)
 
@@ -61,11 +62,11 @@ for currentArgument, currentValue in arguments:
     elif currentArgument in ("-c", "--Centers"):
         Centers = currentValue
 
-    elif currentArgument in ("-e", "--Epsilon"):
-        Epsilon = currentValue
+    # elif currentArgument in ("-e", "--Epsilon"):
+    #     Epsilon = currentValue
     
-    elif currentArgument in ("-m", "--Minpoints"):
-        Minpoints = currentValue
+    # elif currentArgument in ("-m", "--Minpoints"):
+    #     Minpoints = currentValue
 
 Obj = {
 
@@ -75,8 +76,8 @@ Obj = {
     "random_state" : Random_state,
     "features" : features,
     "centers" : Centers,
-    "Eps" : Epsilon,
-    "Minpts" : Minpoints,
+    # "Eps" : Epsilon,
+    # "Minpts" : Minpoints,
 }
 json_object = json.dumps(Obj, indent = 9)
 with open("/content/drive/MyDrive/Colab Notebooks/inputobjectdb.json", "w") as outfile:
@@ -127,7 +128,7 @@ Data=data[0]
 print(f"Labels : {True_label}")
 print(f"Data : {Data}")
 
-Epsilon=0.1
+Epsilon=0.048
 Minpoints=3
 start_time = time.time()
 #c = dbscan(d.transpose(),eps,minpoint)
