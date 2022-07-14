@@ -122,7 +122,7 @@ if D == "circle":
 
 
 True_label = data[1]
-Data=data[0]
+Data=data[0].tolist()
 print(f"Labels : {True_label}")
 print(f"Data : {Data}")
 
