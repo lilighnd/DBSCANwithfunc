@@ -16,7 +16,7 @@ import json
 
 UNCLASSIFIED = False
 NOISE = None
-dists = []
+# dists = []
 
 def distances(point,data):
     print("satart distances")
@@ -32,12 +32,12 @@ def _eps_neighborhood(p, q, eps,dists_point_id):
 def _region_query(m, point_id, eps):
     print("Run _region_query")
     n_points = m.shape[1]
-    m2 = m.transpose()
+    # m2 = m.transpose()
     seeds = []
     dists_point_id = distances(point_id,m)
     for i in range(0, n_points):
         # print(i)
-        if _eps_neighborhood(point_id, i, eps,dists_point_id):
+        if _eps_neighborhood(point_id, i, eps):
             seeds.append(i)
     # print("End Run  _region_query")
     return seeds
@@ -89,7 +89,7 @@ def dbscan(m, eps, min_points):
 
 def main(d, eps, min_points):
     print("Run main")
-    # global dists
+    global dists_point_id
     # print("Run distance")
     # dists = distance.cdist(d.transpose(), d.transpose(), 'euclidean')
     # print("end distance")

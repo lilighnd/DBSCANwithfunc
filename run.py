@@ -133,5 +133,5 @@ start_time = time.time()
 c = main(Data ,Epsilon, Minpoints)
 alltime=time.time() - start_time
 R1 = adjusted_rand_score(True_label, c)
-print(alltime)
+print(R1,alltime)
 print(c)
