@@ -21,11 +21,11 @@ NOISE = None
 def distances(pointid,data):
     print("satart distances")
     dists = distance.cdist(data[pointid].reshape(1,-1), data, 'euclidean')
-    print(dists)
+    # print(dists)
     return dists
 
 def _eps_neighborhood(p, q, eps,dists_point_id):
-    print("Run _eps_neighborhood")
+    # print("Run _eps_neighborhood")
     return dists_point_id[0][q] < eps
 
 
@@ -39,13 +39,14 @@ def _region_query(m, point_id, eps):
         # print(i)
         if _eps_neighborhood(point_id, i, eps,dists_point_id):
             seeds.append(i)
-    # print("End Run  _region_query")
+    print("End Run  _region_query")
     return seeds
 
 
 def _expand_cluster(m, classifications, point_id, cluster_id, eps, min_points):
     print("Run _expand_cluster")
     seeds = _region_query(m, point_id, eps)
+    print(f"seeds : {seeds}")
     if len(seeds) < min_points:
         classifications[point_id] = NOISE
         return False
