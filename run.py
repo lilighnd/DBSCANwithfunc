@@ -123,7 +123,8 @@ if D == "circle":
 
 True_label = data[1]
 Data=data[0] 
-
+print(f"Labels : {True_label}")
+print(f"Data : {Data}")
 
 
 start_time = time.time()

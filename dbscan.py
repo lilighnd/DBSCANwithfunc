@@ -23,12 +23,12 @@ def distances(point,data):
     return dists
 
 def _eps_neighborhood(p, q, eps,dists_point_id):
-    # print("Run _eps_neighborhood")
+    print("Run _eps_neighborhood")
     return dists_point_id[p][q] < eps
 
 
 def _region_query(m, point_id, eps):
-    # print("Run _region_query")
+    print("Run _region_query")
     n_points = m.shape[1]
     m2 = m.transpose()
     seeds = []
@@ -42,7 +42,7 @@ def _region_query(m, point_id, eps):
 
 
 def _expand_cluster(m, classifications, point_id, cluster_id, eps, min_points):
-    # print("Run _expand_cluster")
+    print("Run _expand_cluster")
     seeds = _region_query(m, point_id, eps)
     if len(seeds) < min_points:
         classifications[point_id] = NOISE
@@ -85,12 +85,12 @@ def dbscan(m, eps, min_points):
 
 
 def main(d, eps, min_points):
-    # print("Run main")
+    print("Run main")
     # global dists
     # print("Run distance")
     # dists = distance.cdist(d.transpose(), d.transpose(), 'euclidean')
     # print("end distance")
-    # print("Run dbscan")
+    print("Run dbscan")
     clusters = dbscan(d, eps, min_points)
     # print("end dbscan")
     # print("end main")
