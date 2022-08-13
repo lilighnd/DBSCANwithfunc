@@ -131,12 +131,13 @@ Data=data[0]
 path = f'/content/drive/MyDrive/aggregation.csv'
 df = pd.read_csv(path)
 data = df.values.tolist()
-True_label1=[]
+print(data)
+True_label=[]
 for i in range(len(data)):
-    True_label1.append(data[i][-1])
+    True_label.append(data[i][-1])
     data[i] = data[i][0:2]
 
-True_label1 = data[1]
+True_label = data[1]
 Data=data[0]
 
 Epsilon=1.5
@@ -145,6 +146,6 @@ start_time = time.time()
 #c = dbscan(d.transpose(),eps,minpoint)
 c = main(Data ,Epsilon, Minpoints)
 alltime=time.time() - start_time
-R1 = adjusted_rand_score(True_label1, c)
+R1 = adjusted_rand_score(True_label, c)
 print(R1,alltime)
 print(c)
