@@ -128,10 +128,10 @@ Data=data[0]
 # print(f"Labels : {True_label}")
 # print(f"Data : {Data}")
 
-True_label=[]
 path = f'/content/drive/MyDrive/aggregation.csv'
 df = pd.read_csv(path)
 data = df.values.tolist()
+True_label=[]
 for i in range(len(data)):
     True_label.append(data[i][-1])
     data[i] = data[i][0:2]
