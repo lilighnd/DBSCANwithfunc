@@ -126,8 +126,9 @@ True_label = data[1]
 # Data=data[0].tolist()
 Data=data[0]
 # print(f"Labels : {True_label}")
+print(f"type data1 : {type(Data)}")
 # print(f"Data : {Data}")
-print(data)
+
 
 path = f'/content/drive/MyDrive/aggregation.csv'
 df = pd.read_csv(path)
@@ -139,6 +140,7 @@ for i in range(len(data)):
 
 True_label = data[1]
 Data=data[0]
+print(f"type data2 : {type(Data)}")
 
 Epsilon=1.5
 Minpoints=5
