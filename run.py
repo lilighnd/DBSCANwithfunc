@@ -138,8 +138,7 @@ for i in range(len(data)):
     True_label.append(data[i][-1])
     data[i] = data[i][0:2]
 
-True_label = np.asarray(data[1])
-Data=np.asarray(data[0])
+Data=data
 print(f"type data2 : {Data,True_label}")
 
 Epsilon=1.5
