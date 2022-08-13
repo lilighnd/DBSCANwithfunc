@@ -128,8 +128,19 @@ Data=data[0]
 # print(f"Labels : {True_label}")
 # print(f"Data : {Data}")
 
-Epsilon=0.048
-Minpoints=3
+
+path = f'/content/drive/MyDrive/aggregation.csv'
+df = pd.read_csv(path)
+data = df.values.tolist()
+for i in range(len(data)):
+    True_label.append(data[i][-1])
+    data[i] = data[i][0:2]
+    
+True_label = data[1]
+Data=data[0]
+
+Epsilon=1.5
+Minpoints=5
 start_time = time.time()
 #c = dbscan(d.transpose(),eps,minpoint)
 c = main(Data ,Epsilon, Minpoints)
