@@ -133,9 +133,9 @@ df = pd.read_csv(path)
 data = df.values.tolist()
 print(data)
 True_label=[]
-for i in range(len(data)):
-    True_label.append(data[i][-1])
-    data[i] = data[i][0:2]
+# for i in range(len(data)):
+#     True_label.append(data[i][-1])
+#     data[i] = data[i][0:2]
 
 True_label = data[1]
 Data=data[0]
