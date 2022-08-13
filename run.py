@@ -126,7 +126,7 @@ True_label = data[1]
 # Data=data[0].tolist()
 Data=data[0]
 # print(f"Labels : {True_label}")
-print(f"type data1 : {type(True_label)}")
+print(f"type data1 : {Data,True_label}")
 # print(f"Data : {Data}")
 
 
@@ -140,7 +140,7 @@ for i in range(len(data)):
 
 True_label = np.asarray(data[1])
 Data=np.asarray(data[0])
-print(f"type data2 : {type(True_label)}")
+print(f"type data2 : {Data,True_label}")
 
 Epsilon=1.5
 Minpoints=5
