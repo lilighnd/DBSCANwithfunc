@@ -126,21 +126,21 @@ True_label = data[1]
 # Data=data[0].tolist()
 Data=data[0]
 # print(f"Labels : {True_label}")
-print(f"type data1 : {type(Data)}")
+print(f"type data1 : {type(True_label)}")
 # print(f"Data : {Data}")
 
 
 path = f'/content/drive/MyDrive/aggregation.csv'
 df = pd.read_csv(path)
 data = df.values.tolist()
-True_labels=[]
+True_label=[]
 for i in range(len(data)):
-    True_labels.append(data[i][-1])
+    True_label.append(data[i][-1])
     data[i] = data[i][0:2]
 
-True_labels = np.asarray(data[1])
+True_label = np.asarray(data[1])
 Data=np.asarray(data[0])
-print(f"type data2 : {type(Data)}")
+print(f"type data2 : {type(True_label)}")
 
 Epsilon=1.5
 Minpoints=5
