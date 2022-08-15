@@ -7,6 +7,8 @@ from sklearn.model_selection import train_test_split
 from sklearn import cluster, datasets
 import json
 from sklearn.metrics import adjusted_rand_score
+from sklearn.metrics.cluster import fowlkes_mallows_score
+import os
 
 # # path = f'./DataSets/blobsData.csv'
 # path = f'/content/drive/MyDrive/Colab Notebooks/moonsData38.csv'
@@ -26,7 +28,7 @@ from sklearn.metrics import adjusted_rand_score
 # minpoint = 3
 Dataset = "blob"
 Number_Data = 50
-Noise = 0.05
+Noise = 0
 Random_state = 42
 features = 2
 Centers = 3
@@ -115,11 +117,11 @@ if D == "moon":
 if D == "blob":
     print("blobs data")       
     data = datasets.make_blobs(n_samples=Numbers, n_features = f, 
-            centers = 3,cluster_std = 0,random_state=R)
+            centers = 3,cluster_std = 1,random_state=R)
 
 if D == "circle":
     print("circles data")       
-    data = datasets.make_circles(n_samples=Numbers,noise=Noise,random_state=R,factor=0.8)
+    data = datasets.make_circles(n_samples=Numbers,noise=Noise,random_state=R,factor=0.5)
 
 
 True_label = data[1]
@@ -141,12 +143,52 @@ for i in range(len(data)):
 Data=np.transpose(np.array(data))
 print(f"type data2 : {Data,True_label}")
 
-Epsilon=1.5
-Minpoints=5
+Epsilon=0.19
+Minpoints=3
 start_time = time.time()
 #c = dbscan(d.transpose(),eps,minpoint)
 c = main(Data ,Epsilon, Minpoints)
 alltime=time.time() - start_time
 R1 = adjusted_rand_score(True_label, c)
-print(R1,alltime)
-print(c)
+fmi=fowlkes_mallows_score(True_label, c)
+
+cols=['DataSize','Mode_Grid','Time','Improvment','SortWay','DataSetType','ARI','FMI','Purity','Precision']
+df = pd.DataFrame(columns=cols)
+
+# ls = []
+# ls.append(json_object["Eps"])
+# ls.append(f1)
+# ls.append(alltime)
+# df = pd.DataFrame(ls) 
+excel_name = f'E:\\Leila.Ghannadzadeh\\GDCF-main\\GDCFalg\\result\\resultfiledb.xlsx'
+# print(excel_name)
+df_source = None
+if os.path.exists(excel_name):
+    # print("os.path.exists(excel_name)")
+    df_source = pd.DataFrame(pd.read_excel(excel_name))
+    # print("os if is ok")
+
+if df_source is not None:
+    # print("df_source is not None")
+    df_source.at[json_object["i"],'DataSize'] = json_object["n_samples"]
+    df_source.at[json_object["i"],'Mode_Grid'] = json_object["mode_grid"]
+    df_source.at[json_object["i"],'Time'] = alltime
+    # if int(json_object["mode_grid"]) == 2:
+    #     print("sqsqsq")
+    #     df_source.at[int(json_object["i"])-1,'Improvment'] = (df_source.iloc[int(json_object["i"])]['Time']-df_source.iloc[int(json_object["i"]-1)]['Time'])/df_source.iloc[int(json_object["i"])]['Time']
+    df_source.at[json_object["i"],'SortWay'] = json_object["sort_grids"]
+    df_source.at[json_object["i"],'DataSetType'] = json_object["data"]
+    df_source.at[json_object["i"],'ARI'] = R1
+    df_source.at[json_object["i"],'FMI'] = fmi
+    df_dest = df_source
+    # print("df_source if is ok")
+
+else:
+    # print("not exist")
+    df_dest = df
+    # print("ok if not exist")
+
+
+df_dest.to_excel(excel_name,index=False)
+# print(R1,alltime)
+# print(c)
